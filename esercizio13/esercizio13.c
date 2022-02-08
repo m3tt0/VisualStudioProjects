@@ -115,6 +115,7 @@ int **allocMatrix (int r, int c)
 
 void verifyMatrix (int **matrix, int righe, int colonne)
 {
+	int v[colonne] = {0};
 	int *sommaColonne;
 	int i,j, controlloColonne = 0;
 	
@@ -164,6 +165,7 @@ int **newMatrix (int **matrix, int r, int c, int *newR)
 	int **matrice;
 	int i,j, count;
 	int indexRow = 0;
+	
 	for (i = 0; i < r; i++)
 	{
 		if (matrix[i][0] != 0)
