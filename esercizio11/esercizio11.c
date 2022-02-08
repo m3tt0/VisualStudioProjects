@@ -1,3 +1,9 @@
+//Si consideri un file che contiene una sequenza di cognomi (uno per riga, senza spazi) di candidati, tale che ogni elemento rappresenta un voto espresso a favore di quel candidato. 
+//Come esempio si consideri il file "voti.txt"
+//Si assuma che il numero di voti sia qualsiasi, ma il numero di candidati votati sia al massimo 100.
+//Si scriva un programma in C che letto un file dei voti stampi il cognome dei candidati che hanno preso il maggiore numero di voti e il numero di voti presi.
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

@@ -1,3 +1,10 @@
+//Si consideri un file contenente informazioni su un insieme di attività di una settimana (una per riga), con il formato che si evince dal file "agenda.txt".
+//Il nome dell’attività è una stringa (massimo 20 caratteri) senza spazi, e tutte le informazioni nel file sono separate tra loro da uno o più spazi. 
+//L’orario è sempre descritto solo da un intero rappresentante le ore (non ci sono i minuti).
+//Inoltre, tutte le attività iniziano e terminano nella stessa settimana, quindi non è possibile ad esempio che un’attività inizi il Venerdı̀ e termini il Martedı̀, oppure che inizi Sabato alle 20 e termini Sabato alle 17.
+//Si scriva un programma in C che prenda come parametro il nome di un file siffatto e restituisca gli eventi di lunghezza massima presenti nel file con la durata.
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
