@@ -74,8 +74,7 @@ int **readFile (const char *nomeFile, int *r, int *c)
 		{
 			fscanf(fp,"%d", matrice[i] + j);
 		}
-	}
-	
+	}	
 	
 	*r = righe;
 	*c = colonne;
@@ -90,16 +89,18 @@ int **allocMatrix (int r, int c)
 	int **matrice, i;
 	
 	matrice = (int **) malloc (r * sizeof(int *));
+
 	if (matrice == NULL)
 	{
 		gestisciErrore(ALLOC_MEMORY_ERROR);
 	}
 	matrice[0] = (int *) malloc (r * c * sizeof(int));
+
 	if (matrice == NULL)
 	{
 		gestisciErrore(ALLOC_MEMORY_ERROR);
 	}
-	for ( i = 0; i < r; i++)
+	for ( i = 1; i < r; i++)
 	{
 		matrice[i] = (int*)malloc(c * sizeof(int));
 
