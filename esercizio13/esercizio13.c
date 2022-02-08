@@ -12,21 +12,22 @@
 
 int **readFile (const char *nomeFile, int *r, int *c);
 void verifyMatrix (int **matrix, int righe, int colonne);
-int **newMatrix (int **matrix, int *r, int *c, int *newR);
-void writeFile(int **matrix, int newR, int c);
+int **newMatrix (int **matrix, int r, int c, int *newR);
+void writeFile(const char *nomeFile, int **matrix, int newR, int c);
 int **allocMatrix(int r, int c);
 void gestisciErrore (int code);
 
 int main ()
 {
 	int **matrix, **matrix1;
-	char nomeFile [100];
+	char nomeFileIn [100];
+	char nomeFileOut [100];
 	int righe, colonne, newRighe, i, j;
 	
 	printf ("Inserisci nome del file di input: ");
-	scanf ("%s", nomeFile);
+	scanf ("%s", nomeFileIn);
 	
-	matrix = readFile (nomeFile, &righe, &colonne);
+	matrix = readFile (nomeFileIn, &righe, &colonne);
 	printf ("Matrice letta: \n");
 	for (i = 0; i < righe; i++)
 	{
@@ -39,9 +40,11 @@ int main ()
 	
 	verifyMatrix (matrix, righe, colonne);
 	
-	matrix1 = newMatrix (matrix, &righe, &colonne, &newRighe);
+	matrix1 = newMatrix (matrix, righe, colonne, &newRighe);
 	
-	writeFile(matrix1, newRighe, colonne);
+	printf ("\nInserisci nome del file di output: ");
+	scanf ("%s", nomeFileOut);
+	writeFile(nomeFileOut, matrix1, newRighe, colonne);
 	
 	
 	return 0;
@@ -155,12 +158,12 @@ void verifyMatrix (int **matrix, int righe, int colonne)
 	
 }
 
-int **newMatrix (int **matrix, int *r, int *c, int *newR)
+int **newMatrix (int **matrix, int r, int c, int *newR)
 {
 	int **matrice;
-	int i,j, righe, colonne, count;
+	int i,j, count;
 	int indexRow = 0;
-	for (i = 0; i < righe; i++)
+	for (i = 0; i < r; i++)
 	{
 		if (matrix[i][0] != 0)
 		{
@@ -168,14 +171,14 @@ int **newMatrix (int **matrix, int *r, int *c, int *newR)
 		}
 	}
 		
-	matrice = allocMatrix(count, colonne); 
+	matrice = allocMatrix(count, c); 
 	
 		
-	for (i = righe - 1; i >= 0; i--) 
+	for (i = r - 1; i >= 0; i--) 
 	{
 		if (matrix[i][0] != 0) 
 		{
-			for (j = 0; j < colonne; j++) 
+			for (j = 0; j < c; j++) 
 			{
 				matrice[indexRow][j] = matrix[i][j];
 			}
@@ -183,38 +186,34 @@ int **newMatrix (int **matrix, int *r, int *c, int *newR)
 		}
 	}
 
-	*r = righe;
-	*c = colonne;
+
 	*newR = count;
 	
 	return matrice;
 }
 
-void writeFile(int **matrix, int newR, int c)
+void writeFile(const char *nomeFile, int **matrix, int newR, int c)
 {
 	FILE *fp;
-	int i,j, righe, colonne;
+	int i,j;
 	
-	fp = fopen ("output.txt", "w");
+	fp = fopen (nomeFile, "w");
 	if (fp == NULL)
 	{
 		gestisciErrore (FILE_WRITE_ERROR);
 	}
 	
-	fprintf (fp, "%d %d ", righe, colonne);
-	for (i = 0; i < righe; i++)
+	fprintf (fp, "%d %d \n", newR, c);
+	for (i = 0; i < newR; i++)
 	{
-		for (j = 0; j < colonne; j++)
+		for (j = 0; j < c; j++)
 		{
-			fprintf (fp, "%d ", matrix[i][j]);
+			fprintf (fp, "%d\t", matrix[i][j]);
 		}
 		fprintf (fp, "\n");
 	}
-		
+
 	
-	
-	newR = righe;
-	c = colonne;
 }
 
 void gestisciErrore (int code)
