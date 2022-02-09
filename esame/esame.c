@@ -91,9 +91,9 @@ int **allocMatrix (int r, int c)
 	{
 		gestisciErrore(ALLOC_MEMORY_ERROR);
 	}
-	for ( i = 0; i < r; i++)
+	for ( i = 1; i < r; i++)
 	{
-		matrice[i] = (int*)malloc(c * sizeof(int));
+		matrice[i] = matrice [i - 1] + c;
 
 		if (matrice[i] == NULL)
 		{
