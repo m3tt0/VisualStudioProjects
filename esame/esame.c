@@ -88,7 +88,7 @@ int **allocMatrix (int r, int c)
 		gestisciErrore(ALLOC_MEMORY_ERROR);
 	}
 	matrice[0] = (int *) malloc (r * c * sizeof(int));
-	if (matrice == NULL)
+	if (matrice[0] == NULL)
 	{
 		gestisciErrore(ALLOC_MEMORY_ERROR);
 	}
