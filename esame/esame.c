@@ -77,6 +77,7 @@ int **readFile (const char *nomeFile, int *r, int *c)
 	return matrice;
 }
 
+//allocazione dinamica di memoria contigua
 int **allocMatrix (int r, int c)
 {
 	int **matrice, i;
