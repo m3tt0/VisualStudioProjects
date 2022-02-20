@@ -1,5 +1,6 @@
 
-//Scrivere una funzione ricorsiva che, avendo in input un array di interi e un intero K, dia inoutput TRUE se tutti gli elementi del vettore sono maggiori di K e FALSE altrimenti.
+//Scrivere una funzione ricorsiva che, avendo in input un array di interi e un intero K, 
+//dia in output TRUE se tutti gli elementi del vettore sono maggiori di K e FALSE altrimenti.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,7 +36,7 @@ int main()
 	printf("Inserisci elemento da cercare ");
 	scanf("%d",&k);
 	
-	printf("Risultato cerca: %d\n", verificaRicorsivo2(v, n, k));
+	printf("Risultato cerca: %d\n", verificaRicorsivo(v, n, k));
 	free(v);
 }
 
@@ -49,7 +50,7 @@ int *allocVect(int n)
 {
 	int *v;
 	
-	v = malloc(n*sizeof(int));
+	v = (int *) malloc(n*sizeof(int));
 	
 	return v;
 }
@@ -59,7 +60,7 @@ void randomVect(int *v, int n)
 	int i;
 	
 	for (i=0; i<n; i++) {
-		v[i] = rand() % 101;
+		v[i] = rand() % 100 + 1;
 	}
 }
 
