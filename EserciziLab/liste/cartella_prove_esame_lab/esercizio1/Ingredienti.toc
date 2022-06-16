@@ -1,0 +1,6 @@
+atte  l  0.25
+farina  g  300.00
+olio  l  0.05
+ova  u  2.00
+burro  g  50.00
+yogurt  g  50.00

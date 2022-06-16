@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main ()
+{
+	float num;
+	float media;
+	float sum;
+	int count;
+
+	printf ("Inserisci una serie di valori per saperne la media, quando inserirai zero si fermerà: ");
+
+	 != 0)
+	{
+		scanf ("%f",&num);
+		sum += num;
+		count++;
+	}
+
+	media = (sum / count);
+	printf ("La media dei %d numeri inseriti e': %.2f\n",count, media);
+
+return 0;
+}
